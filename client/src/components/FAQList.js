@@ -86,7 +86,7 @@ const FAQList = props => {
   return (
     <>
     <div className="page">
-      <h1>We Are Here To Help</h1>
+      <h1>We Are Here To Help You</h1>
       <div className="question-list">{questionListItems}</div>
     </div>
     <div>
