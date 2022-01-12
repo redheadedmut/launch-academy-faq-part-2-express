@@ -27,7 +27,7 @@ body {
   font-family: 'Comic Neue', cursive;
 }
 
-.page, .question-form {
+.page, .question-form, .launcher-list {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -70,4 +70,25 @@ h1 {
 
 .answer {
   font-size: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+}
+
+.links a {
+ color: red;
+ text-decoration: underline;
+}
+
+.links a:hover {
+  color: purple;
+}
+
+
+.launcher-list {
+  width: fit-content;
 }

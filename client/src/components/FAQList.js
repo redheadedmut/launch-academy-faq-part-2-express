@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Question from './Question'
 import QuestionForm from './QuestionForm'
-import { hot } from "react-hot-loader/root"
 
 const FAQList = props => {
   const [questions, setQuestions] = useState([])
@@ -88,4 +87,4 @@ const FAQList = props => {
   )
 }
 
-export default hot(FAQList)
+export default FAQList
