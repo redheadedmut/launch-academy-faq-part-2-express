@@ -4,21 +4,22 @@ import QuestionForm from './QuestionForm'
 import { hot } from "react-hot-loader/root"
 
 const FAQList = props => {
-  //debugger
   const [questions, setQuestions] = useState([])
   const [selectedQuestion, setSelectedQuestion] = useState([])
 
   const fetchData = async () => {
     try {
       const response = await fetch('/api/v1/questions')
+
       if(!response.ok){
         const errorMessage = `${response.status} ${response.statusText}`
         const error = new Error(errorMessage)
         throw(error)
       }
+
       const questionData = await response.json()
-      //debugger
       setQuestions(questionData.questions)
+
     } catch (error) {
       console.error(error)
     }
@@ -42,7 +43,6 @@ const FAQList = props => {
       }
 
       const newQuestion = await response.json()
-      debugger
       setQuestions([...questions, newQuestion.question])
 
     } catch (error) {
@@ -51,48 +51,40 @@ const FAQList = props => {
   }
 
   const toggleQuestionSelect = id => {
-    if (id === selectedQuestion) {
-      setSelectedQuestion(null)
-    } else {
-      setSelectedQuestion(id)
-    }
+    const alreadySelected = id === selectedQuestion
+    setSelectedQuestion(alreadySelected ? null : id)
   }
 
-  const questionListItems = questions.map(question => {
-    let selected
-    if (selectedQuestion === question.id) {
-      selected = true
-    }
-
-    let handleClick = () => {
-      toggleQuestionSelect(question.id)
-    }
+  const questionListItems = questions.map(({id, question, answer}) => {
+    const selected = selectedQuestion === id ? true : false
+    const handleClick = () => toggleQuestionSelect(id)
 
     return (
       <Question
-        key={question.id}
-        question={question.question}
-        answer={question.answer}
+        key={id}
+        question={question}
+        answer={answer}
         selected={selected}
         handleClick={handleClick}
       />
     )
   })
   
-  useEffect( () => {
-    fetchData()
-  },[])
+  useEffect(
+    () => { fetchData() },
+    []
+  )
 
   return (
     <>
-    <div className="page">
-      <h1>We Are Here To Help You</h1>
-      <div className="question-list">{questionListItems}</div>
-    </div>
-    <div>
-      <QuestionForm addNewQuestion={addNewQuestion}/>
-    </div>
-    </>
+      <div className="page">
+        <h1>We Are Here To Help You</h1>
+        <div className="question-list">{questionListItems}</div>
+        <div >
+          <QuestionForm addNewQuestion={addNewQuestion} />
+        </div>
+      </div>
+      </>
   )
 }
 

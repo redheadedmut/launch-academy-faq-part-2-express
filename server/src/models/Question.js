@@ -45,7 +45,8 @@ class Question {
       const data = { questions: questions }
       fs.writeFileSync(questionsPath, JSON.stringify(data))
       return true
-    } else {
+    } 
+    else {
       return false
     }
   }
