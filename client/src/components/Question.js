@@ -1,35 +1,38 @@
 import React from 'react'
 
-const Question = props => {
-  let answer, button, questionClass
-  if (props.selected) {
-    questionClass = 'selected-question'
-    button = (
-      <i
-        onClick={props.handleClick}
-        className="fa fa-minus-square fa-2x green"
-        aria-hidden="true"
-      />
-    )
-    answer = props.answer
-  } else {
-    questionClass = 'unselected-question'
-    button = (
-      <i
-        onClick={props.handleClick}
-        className="fa fa-plus-square fa-2x"
-        aria-hidden="true"
-      />
-    )
+const Question = ({ question, answer, selected, handleClick }) => {
+
+  let displayedAnswer = null, buttonClass
+  if (selected) {
+    buttonClass = "fas fa-minus-square green"
+    displayedAnswer = answer
+  } 
+  else {
+    buttonClass = "fas fa-plus-square"
   }
 
   return (
     <div>
-      <div className={questionClass}>
-        {button}
-        <h5 onClick={props.handleClick}>{props.question}</h5>
+
+      <div className="faq">
+
+        <i
+          onClick={handleClick}
+          className={buttonClass}
+          aria-hidden="true"
+        />
+
+        <h5>
+          {question}
+        </h5>
+        
+        <p>
+          {displayedAnswer}
+        </p>
+
       </div>
-      <p>{answer}</p>
+
+
     </div>
   )
 }

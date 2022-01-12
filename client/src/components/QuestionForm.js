@@ -19,24 +19,26 @@ const QuestionForm = (props) => {
     }
 
     return (
-        <form onSubmit={onSubmitHandler}>
-            <label htmlFor="name">Question</label>
-            <input
-                id="question"
-                name="question"
-                onChange={onChangeHandler}
-                value={formInput.question}
-                placeholder="Enter your question here"
-            />
+        <form className="question-form faq" onSubmit={onSubmitHandler}>
+            <label htmlFor="name">Question: 
+                <input
+                    id="question"
+                    name="question"
+                    onChange={onChangeHandler}
+                    value={formInput.question}
+                    placeholder="Enter your question here"
+                />
+            </label>
 
-            <label htmlFor="name">Answer</label>
-            <input
-                id="answer"
-                name="answer"
-                onChange={onChangeHandler}
-                value={formInput.answer}
-                placeholder="Enter your answer here"
-            />
+            <label htmlFor="name">Answer:
+                <input
+                    id="answer"
+                    name="answer"
+                    onChange={onChangeHandler}
+                    value={formInput.answer}
+                    placeholder="Enter your answer here"
+                    />
+            </label>
 
             <input type="submit" value="Submit Question" />
         </form>

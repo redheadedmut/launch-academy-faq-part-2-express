@@ -12,3 +12,62 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Roboto:wght@100&display=swap');
+
+$black: #1c2224;
+$blue: #37BECC;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
+
+body {
+  background-color: $light-blue;
+  font-family: 'Comic Neue', cursive;
+}
+
+.page, .question-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.page {
+  width: 80%;
+}
+
+.question-form {
+  width: 50%;
+  margin-top: 2rem;
+  align-items: center;
+  border: 1pt black solid;
+}
+
+.question-form label {
+  font-size: 1.25rem;
+}
+
+h1 {
+  color: $blue;
+  font-family: 'Comic Neue', cursive;
+  text-align: center;
+  font-weight: 600;
+}
+
+.green {
+  color: $green;
+}
+
+.fas{ 
+  padding: 0.5rem;
+}
+
+.faq {
+  border-bottom: 1px solid black;
+  font-size: 1.5rem;
+}
+
+.answer {
+  font-size: 1rem;
+}
